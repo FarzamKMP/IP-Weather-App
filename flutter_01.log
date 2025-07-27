@@ -1,0 +1,68 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d 00008110-0011682834A1A01E
+
+## exception
+
+SocketException: SocketException: Send failed (OS Error: No route to host, errno = 65), address = 0.0.0.0, port = 5353
+
+```
+#0      _NativeSocket.send (dart:io-patch/socket_patch.dart:1269:34)
+#1      _RawDatagramSocket.send (dart:io-patch/socket_patch.dart:2584:15)
+#2      MDnsClient.lookup (package:multicast_dns/multicast_dns.dart:225:14)
+#3      MDnsVmServiceDiscovery._pollingVmService (package:flutter_tools/src/mdns_discovery.dart:232:66)
+<asynchronous suspension>
+#4      MDnsVmServiceDiscovery.firstMatchingVmService (package:flutter_tools/src/mdns_discovery.dart:188:56)
+<asynchronous suspension>
+#5      MDnsVmServiceDiscovery.getVMServiceUriForLaunch (package:flutter_tools/src/mdns_discovery.dart:433:50)
+<asynchronous suspension>
+#6      Future.any.onValue (dart:async/future.dart:618:5)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.22.1, on macOS 15.5 24F74 darwin-arm64 (Rosetta), locale en-US)
+    [32m•[39m Flutter version 3.22.1 on channel stable at /Users/amirfarzam/flutter/flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision a14f74ff3a (1 year, 2 months ago), 2024-05-22 11:08:21 -0500
+    [32m•[39m Engine revision 55eae6864b
+    [32m•[39m Dart version 3.4.1
+    [32m•[39m DevTools version 2.34.3
+
+[31m[✗][39m Android toolchain - develop for Android devices
+    [31m✗[39m Unable to locate Android SDK.
+      Install Android Studio from: https://developer.android.com/studio/index.html
+      On first launch it will assist you in installing the Android SDK components.
+      (or visit https://flutter.dev/docs/get-started/install/macos#android-setup for detailed instructions).
+      If the Android SDK has been installed to a custom location, please use
+      `flutter config --android-sdk` to update to that location.
+
+
+[32m[✓][39m Xcode - develop for iOS and macOS (Xcode 16.4)
+    [32m•[39m Xcode at /Applications/Xcode.app/Contents/Developer
+    [32m•[39m Build 16F6
+    [32m•[39m CocoaPods version 1.16.2
+
+[32m[✓][39m Chrome - develop for the web
+    [32m•[39m Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[33m[!][39m Android Studio (not installed)
+    [32m•[39m Android Studio not found; download from https://developer.android.com/studio/index.html
+      (or visit https://flutter.dev/docs/get-started/install/macos#android-setup for detailed instructions).
+
+[32m[✓][39m Connected device (4 available)
+    [32m•[39m SilverShades (mobile)           • 00008110-0011682834A1A01E • ios            • iOS 18.5 22F76
+    [32m•[39m macOS (desktop)                 • macos                     • darwin-arm64   • macOS 15.5 24F74 darwin-arm64 (Rosetta)
+    [32m•[39m Mac Designed for iPad (desktop) • mac-designed-for-ipad     • darwin         • macOS 15.5 24F74 darwin-arm64 (Rosetta)
+    [32m•[39m Chrome (web)                    • chrome                    • web-javascript • Google Chrome 138.0.7204.169
+
+[32m[✓][39m Network resources
+    [32m•[39m All expected network resources are available.
+
+[33m![39m Doctor found issues in 2 categories.
+```
